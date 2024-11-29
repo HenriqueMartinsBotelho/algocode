@@ -1,0 +1,30 @@
+{
+  "category": {
+    "name": "Sorting Algorithms",
+    "description": "Algorithms used to sort data efficiently."
+  },
+  "algorithms": [
+    {
+      "name": "Bubble Sort",
+      "description": "A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.",
+      "difficulty": "Easy",
+      "template": "function bubbleSort(arr) { for (let i = 0; i < arr.length; i++) { for (let j = 0; j < arr.length - i - 1; j++) { if (arr[j] > arr[j + 1]) { [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; } } } return arr; }",
+      "testCases": [
+        { "input": [[5, 3, 8, 4, 2]], "expected": [2, 3, 4, 5, 8] },
+        { "input": [[1, 2, 3]], "expected": [1, 2, 3] },
+        { "input": [[3, 2, 1]], "expected": [1, 2, 3] }
+      ]
+    },
+    {
+      "name": "Quick Sort",
+      "description": "A divide-and-conquer algorithm that picks an element as a pivot and partitions the array around the pivot.",
+      "difficulty": "Medium",
+      "template": "function quickSort(arr) { if (arr.length <= 1) return arr; const pivot = arr[0]; const left = arr.slice(1).filter(el => el < pivot); const right = arr.slice(1).filter(el => el >= pivot); return [...quickSort(left), pivot, ...quickSort(right)]; }",
+      "testCases": [
+        { "input": [[5, 3, 8, 4, 2]], "expected": [2, 3, 4, 5, 8] },
+        { "input": [[1, 2, 3]], "expected": [1, 2, 3] },
+        { "input": [[3, 2, 1]], "expected": [1, 2, 3] }
+      ]
+    }
+  ]
+}
