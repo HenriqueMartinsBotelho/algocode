@@ -8,7 +8,9 @@
     "algo-cli": "./cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "init-db": "node src/scripts/initDb.js"
   },
   "keywords": [],
   "author": "",
