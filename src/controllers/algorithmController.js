@@ -29,6 +29,15 @@ class AlgorithmController {
       throw new Error("Erro ao obter o algoritmo: " + err.message);
     }
   }
+
+  static async getAllAlgorithms() {
+    try {
+      const algorithms = await AlgorithmModel.getAll();
+      return algorithms;
+    } catch (err) {
+      throw new Error("Erro ao obter o algoritmo: " + err.message);
+    }
+  }
 }
 
 export default AlgorithmController;

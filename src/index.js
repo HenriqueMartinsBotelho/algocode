@@ -3,6 +3,7 @@ import {
   addCategoryCommand,
   listCategoriesCommand,
   addAlgorithmCommand,
+  listAllAlgorithms,
 } from "./cli/commands.js";
 
 const program = new Command();
@@ -25,5 +26,10 @@ program
   .command("add-algorithm")
   .description("Adicionar um novo algoritmo")
   .action(addAlgorithmCommand);
+
+program
+  .command("list-all-algorithms")
+  .description("Listar todos os algoritmos")
+  .action(listAllAlgorithms);
 
 program.parse(process.argv);

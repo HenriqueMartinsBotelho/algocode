@@ -27,7 +27,7 @@ class AlgorithmModel {
         function (err) {
           if (err) return reject(err);
           resolve(this.lastID);
-        }
+        },
       );
     });
   }
@@ -40,7 +40,7 @@ class AlgorithmModel {
         (err, rows) => {
           if (err) return reject(err);
           resolve(rows);
-        }
+        },
       );
     });
   }
@@ -53,8 +53,17 @@ class AlgorithmModel {
         (err, row) => {
           if (err) return reject(err);
           resolve(row);
-        }
+        },
       );
+    });
+  }
+
+  static async getAll() {
+    return new Promise((resolve, reject) => {
+      db.get("SELECT * FROM algorithms", (err, row) => {
+        if (err) return reject(err);
+        resolve(row);
+      });
     });
   }
 }

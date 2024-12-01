@@ -1,6 +1,7 @@
 import inquirer from "inquirer";
 import CategoryController from "../controllers/categoryController.js";
 import chalk from "chalk";
+import AlgorithmController from "../controllers/algorithmController.js";
 
 export async function addCategoryCommand() {
   const answers = await inquirer.prompt([
@@ -20,10 +21,10 @@ export async function addCategoryCommand() {
   try {
     const categoryId = await CategoryController.addCategory(
       answers.name,
-      answers.description
+      answers.description,
     );
     console.log(
-      chalk.green(`Categoria adicionada com sucesso com ID: ${categoryId}`)
+      chalk.green(`Categoria adicionada com sucesso com ID: ${categoryId}`),
     );
   } catch (error) {
     console.error(chalk.red("Erro ao adicionar categoria:", error.message));
@@ -45,7 +46,7 @@ export async function addAlgorithmCommand() {
     });
 
     console.log(
-      chalk.green(`Algoritmo adicionado com sucesso com ID: ${algorithmId}`)
+      chalk.green(`Algoritmo adicionado com sucesso com ID: ${algorithmId}`),
     );
   } catch (error) {
     console.error(chalk.red("Erro ao adicionar algoritmo:", error.message));
@@ -63,5 +64,17 @@ export async function listCategoriesCommand() {
     });
   } catch (error) {
     console.error(chalk.red("Erro ao listar categorias:", error.message));
+  }
+}
+
+export async function listAllAlgorithms() {
+  try {
+    const algorithms = await AlgorithmController.getAllAlgorithms();
+    console.log(chalk.blue("\nAlgoritmos disponíveis"));
+    console.log(algorithms);
+  } catch (error) {
+    console.error(
+      chalk.red("Erro ao listar todos os algoritmos", error.message),
+    );
   }
 }
